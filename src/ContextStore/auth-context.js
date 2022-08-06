@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-
 const users = [
     {
         userId:'admin',
@@ -9,17 +8,17 @@ const users = [
         role:'admin'
     },
     {
-        userId:'librarian1',
-        name:'Librarian 1',
-        email:'librarian1@gmail.com',
-        password:'librarian1@123',
+        userId:'moh1',
+        name:'moh 1',
+        email:'moh1@gmail.com',
+        password:'moh1@123',
         role:'employee'
     },
     {
-        userId:'librarian2',
-        name:'Librarian 2',
-        email:'librarian2@gmail.com',
-        password:'librarian2@123',
+        userId:'moh2',
+        name:'moh 2',
+        email:'moh2@gmail.com',
+        password:'moh2@123',
         role:'employee'
     },
     {
@@ -42,28 +41,38 @@ const checkUserData = (userData) =>{
     const isUserEmailExist = users.find(user=>user.email === userData.email)
     const isUserPasswordEXist = users.find(user=>user.password===userData.password)
     let token;
+    let role;
     if(isUserEmailExist && isUserPasswordEXist)
     {
         token = users.find(user=>user.email === userData.email).userId
-        const role = users.find(user=>user.email === userData.email).role
+        role = users.find(user=>user.email === userData.email).role
         localStorage.setItem('role',role)
     }
-    return token
+    return {
+        token:token,
+        role:role
+    }
 }
 
 export const AuthContextProvider = (props) =>{
     const initialToken = localStorage.getItem('token')
+    const initialRole = localStorage.getItem('role')
     const [token,setToken]  = useState(initialToken)
-    
+    const [role,setRole] = useState(initialRole)
+
     const loginHandler = (userData) =>{
         const token = checkUserData(userData)
+        
+        setToken(token.token)
+        setRole(token.role)
        
-        setToken(token)
-        localStorage.setItem('token',token)
+        localStorage.setItem('token',token.token)
+        localStorage.setItem('role',token.role)
     }
 
     const loguotHandler = () =>{
         setToken(null)
+        setRole(null)
         localStorage.removeItem('token')
         localStorage.removeItem('role')
     }
@@ -72,7 +81,8 @@ export const AuthContextProvider = (props) =>{
         token:token,
         login:loginHandler,
         logout:loguotHandler,
-        isLoggedIn:!!token
+        isLoggedIn:!!token,
+        role:role
     }
 
     return <AuthContext.Provider value={contextValues}>{props.children}</AuthContext.Provider>
@@ -82,7 +92,8 @@ const AuthContext = createContext({
     login:(token)=>{},
     logout:()=>{},
     token:'',
-    isLoggedIn:false
+    isLoggedIn:false,
+    role:''
 })
 
 export default AuthContext;

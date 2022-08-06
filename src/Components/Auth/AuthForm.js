@@ -1,10 +1,16 @@
-import { useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../ContextStore/auth-context';
 import classes from './AuthForm.module.css';
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
- 
+  const authContext = useContext(AuthContext)
+  const role = authContext.role
+  const [navrole,setRole] = useState(role)
   const emailRef = useRef()
   const passwordRef = useRef()
+  const navigate = useNavigate()
+
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -18,13 +24,29 @@ const AuthForm = () => {
 
     if(isLogin)
     {
-     
-    }
-    else{
-      
+      authContext.login({
+        email:enteredemailRef,
+        password:enteredpasswordRef
+      })
+
+      if(role === 'admin')
+      {
+          navigate('admin',{replace:true})
+      }
+      else if(role === 'employee')
+      {
+
+          navigate('moh',{replace:true})
+      }
+      else{
+          navigate('moh')
+      }
     }
 
+
   }
+
+  
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
