@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Outlet } from 'react-router-dom'
 import AuthContext from '../ContextStore/auth-context'
 import AdminNavigation from './AdminNavigation'
 import MainNavigation from './MainNavigation'
@@ -13,7 +14,7 @@ const Layout = (props) => {
 
     // if(role === 'admin')
     // {
-      menu = <AdminNavigation/>
+      menu = <MohNavigation/>
     // }
     // else if(role === 'employee')
     // {
@@ -30,6 +31,7 @@ const Layout = (props) => {
     <div>
       {menu}
       <main>{props.children}</main>
+      <Outlet />
     </div>
   )
 }

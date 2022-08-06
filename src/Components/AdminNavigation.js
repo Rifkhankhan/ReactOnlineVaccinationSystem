@@ -30,7 +30,7 @@ const AdminNavigation = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+    
     </>
   );
 };

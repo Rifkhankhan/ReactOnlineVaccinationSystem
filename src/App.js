@@ -27,35 +27,26 @@ function App() {
     <Layout>
       <Routes> 
         {/* admin */}
-        <Route path='admin' element={<AdminDashboard/>}>
-          <Route index  element={<AdminDashboard/>}/>
-          <Route path='createMoh'  element={<CreateMoh/>}/>
-          <Route path='*' element={<PageNotFound/>}/>
-        </Route>
+        <Route path='admin' element={<AdminDashboard/>}/>
+         
+        <Route path='createMoh'  element={<CreateMoh/>}/>
       
         {/* moh */}
   
-        <Route path='moh' element={<MohDashboard/>}>
-          <Route index  element={<MohDashboard/>}/>
+        <Route path='moh' element={<MohDashboard/>}/>
           <Route path='smartVaccination'  element={<SmartVaccination/>}/>
           <Route path='personHistory'  element={<PersonHistory/>}/>
           <Route path='announcement'  element={<Announcement/>}/>
           <Route path='reports'  element={<Reports/>}/>
-          <Route path='*' element={<PageNotFound/>}/>
-        </Route>
       
         {/* people */}
         
-        <Route path='people' element={<PeopleDashboard/>}>
-          <Route index  element={<PeopleDashboard/>}/>
+        <Route path='people' element={<PeopleDashboard/>}/>
           <Route path='smartVaccination'  element={<CustomerSmartVaccination/>}/>
           <Route path='announcement'  element={<CustomerAnnouncement/>}/>
-          <Route path='*' element={<PageNotFound/>}/>
-        </Route>
                     
         {/* default */}
         <Route path='login' element={<LoginPage />}/>
-        <Route path='/' element={<LoginPage />}/>
         <Route path='register' element={<RegisterPage/>}/>
         <Route path='*' element={<PageNotFound/>}/>
        
