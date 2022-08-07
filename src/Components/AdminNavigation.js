@@ -23,7 +23,7 @@ const AdminNavigation = () => {
           {/* {
               isLoggedIn && 
               <> */}
-                  <li ><NavLink to='createMoh'>Create MOH</NavLink></li>
+                  <li ><NavLink to='/admin/creatMoh'>Create MOH</NavLink></li>
                   <li><button onClick={logoutHandler}>Logout</button></li>
               {/* </>
             } */}

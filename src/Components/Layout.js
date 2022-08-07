@@ -31,7 +31,6 @@ const Layout = (props) => {
     <div>
       {menu}
       <main>{props.children}</main>
-      <Outlet />
     </div>
   )
 }

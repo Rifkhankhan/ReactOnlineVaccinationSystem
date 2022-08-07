@@ -14,7 +14,7 @@ const MohNavigation = () => {
     }
   return (
     <header className={classes.header}>
-      <Link to='/'>
+      <Link to='/moh'>
         <div className={classes.logo}>MOH</div>
       </Link>
       <nav>
@@ -22,10 +22,10 @@ const MohNavigation = () => {
           {
             isLoggedIn && 
             <>
-                <li><NavLink to='/smartVaccination' >Smart Vaccination</NavLink></li>
-                <li><NavLink to='/personHistory'>Person History</NavLink></li>
-                <li><NavLink to='/announcement'>Announcement</NavLink></li>
-                <li><NavLink to='/reports'>Reports</NavLink></li>
+                <li><NavLink to='moh/smartVaccination' >Smart Vaccination</NavLink></li>
+                <li><NavLink to='moh/personHistory'>Person History</NavLink></li>
+                <li><NavLink to='moh/announcement'>Announcement</NavLink></li>
+                <li><NavLink to='moh/reports'>Reports</NavLink></li>
                 <li><button onClick={logoutHandler}>Logout</button></li>
             </>
           }

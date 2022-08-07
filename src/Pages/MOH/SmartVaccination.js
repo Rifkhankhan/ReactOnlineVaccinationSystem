@@ -1,7 +1,12 @@
-import React from "react";
-
+import React, { Fragment } from "react";
+import VaccinationTable from "./VaccinationTable";
+import classes from './SmartVaccination.module.css'
 const SmartVaccination = () => {
-  return <div>SmartVaccination</div>;
+  return <Fragment>
+    <div className={classes.table}>
+      <VaccinationTable />
+    </div>
+  </Fragment>
 };
 
 export default SmartVaccination;

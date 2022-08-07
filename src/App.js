@@ -1,6 +1,6 @@
 
 import { Fragment, useContext } from 'react';
-import { Navigate, Redirect, Route, Routes, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Components/Layout';
 import AuthContext from './ContextStore/auth-context';
 import LoginPage from './Pages/LoginPage';
@@ -27,25 +27,30 @@ function App() {
     <Layout>
       <Routes> 
         {/* admin */}
-        <Route path='admin' element={<AdminDashboard/>}/>
-         
-        <Route path='createMoh'  element={<CreateMoh/>}/>
+        <Route path='/' element={<AdminDashboard/>}>
+          <Route path='createMoh'  element={<CreateMoh/>}/>
+          <Route path='admin'  element={<AdminDashboard  />}/>
+        </Route>
       
         {/* moh */}
   
-        <Route path='moh' element={<MohDashboard/>}/>
-          <Route path='smartVaccination'  element={<SmartVaccination/>}/>
-          <Route path='personHistory'  element={<PersonHistory/>}/>
-          <Route path='announcement'  element={<Announcement/>}/>
-          <Route path='reports'  element={<Reports/>}/>
-      
+        <Route path='/moh'>
+            <Route index  element={<MohDashboard/>}/>
+            <Route path='smartVaccination'  element={<SmartVaccination/>}/>
+            <Route path='personHistory'  element={<PersonHistory/>}/>
+            <Route path='announcement'  element={<Announcement/>}/>
+            <Route path='reports'  element={<Reports/>}/>
+        </Route>
         {/* people */}
         
-        <Route path='people' element={<PeopleDashboard/>}/>
-          <Route path='smartVaccination'  element={<CustomerSmartVaccination/>}/>
-          <Route path='announcement'  element={<CustomerAnnouncement/>}/>
-                    
+        <Route path='/people' >
+            <Route index element={<PeopleDashboard/>} />
+            <Route path='smartVaccination'  element={<CustomerSmartVaccination/>}/>
+            <Route path='announcement'  element={<CustomerAnnouncement/>}/>
+        </Route>
+                     
         {/* default */}
+        <Route path='/' element={<Navigate to='login' replace={true} />}/>
         <Route path='login' element={<LoginPage />}/>
         <Route path='register' element={<RegisterPage/>}/>
         <Route path='*' element={<PageNotFound/>}/>

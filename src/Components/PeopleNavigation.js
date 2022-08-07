@@ -13,7 +13,7 @@ const PeopleNavigation = () => {
     }
   return (
     <header className={classes.header}>
-      <Link to='/'>
+      <Link to='/people'>
         <div className={classes.logo}>Customer</div>
       </Link>
       <nav>
@@ -21,8 +21,8 @@ const PeopleNavigation = () => {
         {
             isLoggedIn && 
             <>
-                <li><Link to='/smartVaccination'>Smart Vaccination</Link></li>
-                <li><Link to='/announcement'>Announcement</Link></li>
+                <li><Link to='people/smartVaccination'>Smart Vaccination</Link></li>
+                <li><Link to='people/announcement'>Announcement</Link></li>
                 <li><button onClick={logoutHandler}>Logout</button></li>
             </>
           }

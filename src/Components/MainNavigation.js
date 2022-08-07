@@ -11,7 +11,7 @@ const MainNavigation = () => {
   
   return (
     <header className={classes.header}>
-      <Link to='/'>
+      <Link to='/login'>
         <div className={classes.logo}>Vaccination System</div>
       </Link>
       <nav>
