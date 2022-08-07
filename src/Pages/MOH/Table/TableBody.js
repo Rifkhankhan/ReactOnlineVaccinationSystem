@@ -1,15 +1,10 @@
 import React from "react";
+import Button from "../../../UI/Button";
+import TableRow from "./TableRow";
 
-const TableBody = () => {
-  return <tbody>
-    <tr>
-        <td>#</td>
-        <td>NIC</td>
-        <td>Name</td>
-        <td>Address</td>
-        <td>Mobile</td>
-        <td>Actions</td>
-    </tr>
+const TableBody = (props) => {
+  return <tbody >
+   <TableRow {...props}/>
   </tbody>;
 };
 

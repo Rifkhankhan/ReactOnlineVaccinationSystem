@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import React from 'react';
 import classes from './MainNavigation.module.css';
 import { useContext } from 'react';
@@ -21,8 +21,8 @@ const PeopleNavigation = () => {
         {
             isLoggedIn && 
             <>
-                <li><Link to='people/smartVaccination'>Smart Vaccination</Link></li>
-                <li><Link to='people/announcement'>Announcement</Link></li>
+                <li><NavLink activeClassName={classes.active} to='people/smartVaccination'>Smart Vaccination</NavLink></li>
+                <li><NavLink activeClassName={classes.active} to='people/announcement'>Announcement</NavLink></li>
                 <li><button onClick={logoutHandler}>Logout</button></li>
             </>
           }

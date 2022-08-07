@@ -17,15 +17,15 @@ const MohNavigation = () => {
       <Link to='/moh'>
         <div className={classes.logo}>MOH</div>
       </Link>
-      <nav>
+      <nav className={classes.nav}>
         <ul>
           {
             isLoggedIn && 
             <>
-                <li><NavLink to='moh/smartVaccination' >Smart Vaccination</NavLink></li>
-                <li><NavLink to='moh/personHistory'>Person History</NavLink></li>
-                <li><NavLink to='moh/announcement'>Announcement</NavLink></li>
-                <li><NavLink to='moh/reports'>Reports</NavLink></li>
+                <li><NavLink activeClassName={classes.active} to='moh/smartVaccination' >Smart Vaccination</NavLink></li>
+                <li><NavLink activeClassName={classes.active} to='moh/personHistory'>Person History</NavLink></li>
+                <li><NavLink activeClassName={classes.active} to='moh/announcement'>Announcement</NavLink></li>
+                <li><NavLink activeClassName={classes.active} to='moh/reports'>Reports</NavLink></li>
                 <li><button onClick={logoutHandler}>Logout</button></li>
             </>
           }

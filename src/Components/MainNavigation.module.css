@@ -49,7 +49,29 @@
     color: #c291e2;
   }
   
-  .header button:hover {
-    background-color: #c291e2;
-    color: #38015c;
-  }
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+
+.nav a:active,
+.nav a.active {
+  color: #e6fcfc;
+  text-decoration: overline ;
+}
+.nav a:hover{
+  color: rgb(23, 233, 19);
+}

@@ -1,7 +1,8 @@
 import React from "react";
+import ReportForm from "./ReportForm";
 
 const Reports = () => {
-  return <div>Reports</div>;
+  return <ReportForm />
 };
 
 export default Reports;
