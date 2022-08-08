@@ -4,6 +4,7 @@ const mohSlice = createSlice({
     name:'moh',
     initialState:{
         nic:'',
+        announcements:[]
     },
     reducers:{
         Announcement(){

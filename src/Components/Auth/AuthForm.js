@@ -4,13 +4,15 @@ import AuthContext from '../../ContextStore/auth-context';
 import classes from './AuthForm.module.css';
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [isFormSubmit,setFormIsSubmitted] = useState(false)
   const authContext = useContext(AuthContext)
-  const role = authContext.role
-  const [navrole,setRole] = useState(role)
+  const role = JSON.stringify(authContext.role)
   const emailRef = useRef()
   const passwordRef = useRef()
   const navigate = useNavigate()
 
+  console.log(role);
+  console.log(typeof(role));
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -28,22 +30,28 @@ const AuthForm = () => {
         email:enteredemailRef,
         password:enteredpasswordRef
       })
-
-      if(role === 'admin')
-      {
-          navigate('admin',{replace:true})
-      }
-      else if(role === 'employee')
-      {
-
-          navigate('moh',{replace:true})
-      }
-      else{
-          navigate('moh')
-      }
     }
 
+    setFormIsSubmitted(true)
+  }
 
+  if(isFormSubmit)
+  {
+    
+    if(role === 'admin')
+    {
+      console.log('admin');
+        navigate('admin',{replace:true})
+    }
+    else if(role === 'employee')
+    {
+      console.log('employee');
+        navigate('moh',{replace:true})
+    }
+    else{
+      console.log(typeof(role));
+        navigate('customer',{replace:true})
+    }
   }
 
   

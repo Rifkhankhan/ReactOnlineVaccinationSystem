@@ -27,6 +27,9 @@ function App() {
     <Layout>
       <Routes> 
         {/* admin */}
+        {
+          isLoggedIn
+        }
         <Route path='/' element={<AdminDashboard/>}>
           <Route path='createMoh'  element={<CreateMoh/>}/>
           <Route path='admin'  element={<AdminDashboard  />}/>

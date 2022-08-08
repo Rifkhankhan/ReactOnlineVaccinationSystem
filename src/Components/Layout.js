@@ -12,20 +12,20 @@ const Layout = (props) => {
   let menu;
 
 
-    // if(role === 'admin')
-    // {
-      menu = <MohNavigation/>
-    // }
-    // else if(role === 'employee')
-    // {
-    //   menu = <MohNavigation />
-    // }
-    // else if(role === 'customer'){
-    //   menu =  <PeopleNavigation />
-    // }
-    // else{
-    //   menu =  <MainNavigation />
-    // }
+    if(role === 'admin')
+    {
+      menu = <AdminNavigation/>
+    }
+    else if(role === 'employee')
+    {
+      menu = <MohNavigation />
+    }
+    else if(role === 'customer'){
+      menu =  <PeopleNavigation />
+    }
+    else{
+      menu =  <MainNavigation />
+    }
   
   return (
     <div>

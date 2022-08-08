@@ -61,13 +61,13 @@ export const AuthContextProvider = (props) =>{
     const [role,setRole] = useState(initialRole)
 
     const loginHandler = (userData) =>{
-        const token = checkUserData(userData)
+        const data = checkUserData(userData)
         
-        setToken(token.token)
-        setRole(token.role)
+        setToken(data.token)
+        setRole(data.role)
        
-        localStorage.setItem('token',token.token)
-        localStorage.setItem('role',token.role)
+        localStorage.setItem('token',data.token)
+        localStorage.setItem('role',data.role)
     }
 
     const loguotHandler = () =>{
